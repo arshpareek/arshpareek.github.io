@@ -15,6 +15,6 @@ export default function ModalPage({pageName}: {pageName: string}): ReactElement 
     };
 
     return (
-        pages[pageName]
+        pages[pageName as keyof typeof pages]
     );
 }

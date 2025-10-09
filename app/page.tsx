@@ -15,9 +15,7 @@ import ArchitectureIcon from '@mui/icons-material/Architecture';
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import Project_card from "@/components/project-card";
-import CardList from "@/components/CardList";
 import ModalPage from "@/components/modalPage";
-import ProjectsPage from "@/components/projectsPage";
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
