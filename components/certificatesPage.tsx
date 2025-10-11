@@ -14,25 +14,25 @@ export default function CertificatesPage() {
           title: "IBM Data Science",
           issuer: "Coursera",
           date: "May 2025",
-          image: "/assets/IBM_Data_Science.png",
+          image: '/IBM_Data_Science.png',
         },
         {
           title: "Generative AI with Large Language Models",
           issuer: "DeepLearning.AI",
           date: "April 2024",
-          image: "/assets/Deeplearningai_LLM.png",
+          image: '/Deeplearningai_LLM.png',
         },
         {
           title: "Deep Reinforcement Learning",
           issuer: "Hugging Face",
           date: "November 2023",
-          image: "/assets/Huggingface_Deep_RL.png",
+          image: '/Huggingface_Deep_RL.png',
         },
         {
           title: "Data Scientist: Machine Learning",
           issuer: "Codecademy",
           date: "August 2023",
-          image: "/assets/Codecademy_Data_Science.png",
+          image: '/Codecademy_Data_Science.png',
         },
       ]
     return (

@@ -4,14 +4,6 @@
 import Image from "next/image";
 import Wave from 'react-wavify'
 
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import SchoolIcon from '@mui/icons-material/School';
-import WorkIcon from '@mui/icons-material/Work';
-import LinkIcon from '@mui/icons-material/Link';
-import ArchitectureIcon from '@mui/icons-material/Architecture';
-
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import Project_card from "@/components/project-card";
@@ -125,6 +117,20 @@ export default function Home() {
     }
   }
 
+  const handleClick = (buttonName: string) => {
+    if (openPage === buttonName){
+      setIsVisible(false);
+      setOpenPage('none');
+    }
+    else if (openPage === 'none'){
+      setIsVisible(true);
+      setOpenPage(buttonName);
+    }
+    else{
+      setOpenPage(buttonName);
+    }
+  }
+
   return (
     <div className="bg-blue-50 font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
       <Wave fill='lightblue'
@@ -142,20 +148,25 @@ export default function Home() {
       />
       
 
-      <AnimatePresence>
-        {isVisible ? <motion.div
+      
+        {isVisible ? <AnimatePresence><motion.div
           className="
           block absolute bottom-60 h-120 w-180 text-blue-800 bg-gray-400/20 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100 overflow-auto
           "
           initial={{opacity: 0, y: 50}}
           animate={{opacity: 1, y: 0}}
-          exit={{opacity: 0, y: 50}}
+          exit={{opacity: 0, y: -50}}
         >
           <ModalPage pageName={openPage} />
           
         </motion.div>
-        : null}
-      </AnimatePresence>
+        </AnimatePresence>
+        : <div className="text-blue-800 w-180">
+            <h1 className="text-5xl font-bold pt-50">Hi, I am Arsh!</h1>
+            <p className="text-2xl pt-5"> I am a Computer Science graduate experienced in Data Science and App Development</p>
+          </div>
+        }
+      
 
       <motion.div 
         className="
@@ -177,7 +188,7 @@ export default function Home() {
           whileTap={{scale: 0.9,
                     transition: { duration: 0.2 },
           }}
-          onClick={() => {setIsVisible(!isVisible); isVisible ? setOpenPage('none') : setOpenPage('education')}}
+          onClick={() => handleClick('education')}
         >
           <div className="">
             <svg className=" fill-current h-12 w-12 ml-auto mr-auto" viewBox="0 0 24 24">
@@ -200,7 +211,7 @@ export default function Home() {
           whileTap={{scale: 0.9,
                     transition: { duration: 0.2 },
           }}
-          onClick={() => {setIsVisible(!isVisible); isVisible ? setOpenPage('none') : setOpenPage('projects')}}
+          onClick={() => handleClick('projects')}
         >
           <div className="">
             <svg className=" fill-current h-12 w-12 ml-auto mr-auto" viewBox="0 0 24 24">
@@ -223,7 +234,7 @@ export default function Home() {
           whileTap={{scale: 0.9,
                     transition: { duration: 0.2 },
           }}
-          onClick={() => {setIsVisible(!isVisible); isVisible ? setOpenPage('none') : setOpenPage('experience')}}
+          onClick={() => handleClick('experience')}
         >
           <div className="">
             <svg className=" fill-current h-12 w-12 ml-auto mr-auto" viewBox="0 0 24 24">
@@ -246,7 +257,7 @@ export default function Home() {
           whileTap={{scale: 0.9,
                     transition: { duration: 0.2 },
           }}
-          onClick={() => {setIsVisible(!isVisible); isVisible ? setOpenPage('none') : setOpenPage('certificates')}}
+          onClick={() => handleClick('certificates')}
         >
           <div className="">
             <svg className=" fill-current h-12 w-12 ml-auto mr-auto" viewBox="0 0 24 24">
