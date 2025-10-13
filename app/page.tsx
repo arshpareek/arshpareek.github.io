@@ -148,23 +148,31 @@ export default function Home() {
       />
       
 
-      
-        {isVisible ? <AnimatePresence><motion.div
+        <AnimatePresence>
+          {isVisible && <motion.div
           className="
           block absolute bottom-60 h-120 w-180 text-blue-800 bg-gray-400/20 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100 overflow-auto
           "
           initial={{opacity: 0, y: 50}}
           animate={{opacity: 1, y: 0}}
-          exit={{opacity: 0, y: -50}}
+          exit={{opacity: 0, y: 50}}
         >
-          <ModalPage pageName={openPage} />
+          <ModalPage pageName={openPage} setIsVisible={setIsVisible} setOpenPage={setOpenPage}/>
           
-        </motion.div>
+        </motion.div>}
         </AnimatePresence>
-        : <div className="text-blue-800 w-180">
+
+        {!isVisible && <AnimatePresence>
+          <motion.div 
+          initial={{opacity: 0}}
+          animate={{opacity: 1}}
+          transition={{duration: 0.5}}
+          exit={{opacity: 0}}
+          className="text-blue-800 w-180">
             <h1 className="text-5xl font-bold pt-50">Hi, I am Arsh!</h1>
             <p className="text-2xl pt-5"> I am a Computer Science graduate experienced in Data Science and App Development</p>
-          </div>
+          </motion.div>
+          </AnimatePresence>
         }
       
 
