@@ -17,9 +17,9 @@ export default function ModalPage({pageName, setIsVisible, setOpenPage}: {pageNa
 
     return (
         <div>
-            <header>
+            <div className="ml-4 mt-4 -mb-3">
                 <motion.button whileHover={{rotate: 90,
-          }} className="ml-2 mt-2 mb-0" onClick={() => {setIsVisible(false); setOpenPage('none')}}>
+          }}  onClick={() => {setIsVisible(false); setOpenPage('none')}}>
                 <svg className="fill-current h-5 w-5" viewBox="0 0 24 24">
                     <path
                         fill="currentColor"
@@ -28,7 +28,7 @@ export default function ModalPage({pageName, setIsVisible, setOpenPage}: {pageNa
                 </svg>
 
                 </motion.button>
-            </header>
+            </div>
             
             <div>
                 {pages[pageName as keyof typeof pages]}

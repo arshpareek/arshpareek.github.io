@@ -1,6 +1,5 @@
 'use client';
 
-import Image, { StaticImageData } from 'next/image';
 import { motion, Transition, useDomEvent } from "framer-motion";
 import { useState, useRef } from 'react';
 
@@ -18,7 +17,7 @@ export default function CertificateCard({title, issuer, date, image}: Props) {
         type: "spring",
         damping: 25,
         stiffness: 120,
-        duration: 0.25,
+        duration: 0.1,
       };
     const [isOpen, setOpen] = useState(false);
     return (
