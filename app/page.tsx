@@ -323,7 +323,6 @@ export default function Home() {
           whileTap={{scale: 0.9,
                     transition: { duration: 0.2 },
           }}
-          onClick={() => handleClick('certificates')}
         >
           <div className="">
             <Link href="https://github.com/arshpareek" rel="noopener noreferrer" target="_blank">  
